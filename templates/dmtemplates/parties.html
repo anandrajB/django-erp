@@ -1,0 +1,109 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="{% static 'styles/base.css' %}">
+{% endblock %}
+{% block content%}
+<button type="button" class="btn btn-primary float-end m-5 m-lg-2" onclick="get_add_party()" data-toggle="modal" 
+data-target="#partiesModal">
+    Add Party
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="partiesModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Party</h5>
+                <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="messages d-flex justify-content-center"></div>
+                <div class="justify-content-center">
+                    {% csrf_token %}
+                    <div class="form-group justify-content-between d-flex">
+                        <div>
+                            <label for="">Party name</label>
+                            <input type="text" class="form-control my-3" id="id_party_name" placeholder="Enter name">
+                            <label for="">Party address</label>
+                            <input type="text" class="form-control my-3" id="id_party_address"
+                                placeholder="Enter address">
+                            <label for="">Party state</label>
+                            <input type="text" class="form-control my-3" id="id_party_state" placeholder="Enter state">
+                            <label for="">Party pincode</label>
+                            <input type="text" class="form-control my-3" id="id_party_pincode"
+                                placeholder="Enter pincode">
+
+                            <label for="">Party type</label>
+                            <select oninput="party_type_change()" class="form-control my-3" id="id_party_type">
+                                <option></option>
+                            </select>
+                            <label for="id_party_products">Party products</label>
+                            <div class="d-flex flex-wrap w-75">
+
+                                <select class="form-control my-3" id="id_party_products">
+                                    <option value=""></option>
+
+                                </select>
+                                <button class="btn btn-primary btn-sm" onclick="AddPart()"> add part</button>
+                            </div>
+                        </div>
+                        <div>
+
+                            <label for="">Party contact name</label>
+                            <input type="text" class="form-control my-3" id="id_party_contact_name"
+                                placeholder="Enter contact name">
+                            <label for="">Party contact no</label>
+                            <input type="text" class="form-control my-3" id="id_party_contact_no"
+                                placeholder="Enter contact no">
+                            <label for="">Party email</label>
+                            <input type="text" class="form-control my-3" id="id_party_email" placeholder="Enter email">
+                            <label for="">Party country</label>
+                            <select class="form-control my-3" id="id_party_country">
+                                <option></option>
+                            </select>
+                            <label for="">Party GSTIN</label>
+                            <input type="text" class="form-control my-3" id="id_party_GSTIN" placeholder="Enter gst">
+                        </div>
+                    </div>
+                    <div id="party_product_error"></div>
+                    <div id="party_products" class="d-flex flex-wrap"></div>
+
+                
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="Partiesbtn">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are your sure to delete ?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="yes">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'script/dm/parties.js' %}"></script>
+<div id="partiesdata" class="overflow-auto">
+
+</div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content%}
+
+<div id="messages"></div>
+<div id="purchase_request_form">
+
+</div>
+<input type="submit" onclick="submit_return_goods()" disabled id="pr_submit_button" value="Submit">
+<script src="{% static 'script/inventory/returngoods.js' %}"></script>
+{% endblock %}

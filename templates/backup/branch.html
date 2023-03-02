@@ -1,0 +1,65 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="">
+{% endblock %}
+
+{% block content %}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-sm btn-primary float-end m-5" data-toggle="modal" data-target="#branchModal"
+  onclick="add_branch_show()">
+  Add Branch
+</button>
+
+<div class="modal fade" id="branchModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add Branch</h5>
+        <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-center">
+        <div class="messages"></div>
+        {% csrf_token %}
+        <input type="text" class="form-control my-3" id="id_branch_name" placeholder="branch_name">
+        <input type="text" class="form-control my-3" id="id_branch_cityname" placeholder="city_name">
+        <input type="text" class="form-control my-3" id="id_branch_state" placeholder="state">
+        <label for="form_country">country</label> <select name="" class="form_country" id="id_branch_country"></select>
+        <input type="number" class="form-control my-3" id="id_branch_pincode" placeholder="pincode">
+        <input type="text" class="form-control my-3" id="id_branch_gstnumber" placeholder="GST_Number">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-primary" id="branchButton">Submit</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+        <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        Are your sure to delete ?
+        <div id="delete-error"></div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="yes">Yes</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="branch-main" id="branch-main"></div>
+<script src="{% static 'script/branch.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content%}
+
+<div id="messages"></div>
+
+
+<div id="party_data"></div>
+
+<div id="sales_order_form">
+</div>
+<input type="submit" onclick="submit_sales_order()" id="pr_submit_button" value="Submit">
+<a href="" id="sales-url">Exit</a>
+<script src="{% static 'script/list_form.js' %}"></script>
+<script src="{% static 'script/sales/new_sales_order.js' %}"></script>
+
+{% endblock %}

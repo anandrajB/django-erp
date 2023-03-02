@@ -1,0 +1,17 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content%}
+
+<div class="messages"></div>
+<!-- <div id="new-pi-button"></div> -->
+<!-- <div id="purchase-inquiry-list"></div> -->
+<div id="po-form" class="w-50"></div>
+<div id="po-list-form" class="po-list-form"></div>
+<div id="submit-btn">
+</div>
+<script src="{% static 'script/main2.js' %}"></script>
+<script src="{% static 'script/list_form.js' %}"></script>
+<script src="{% static 'script/data/purchase_management.js' %}"></script>
+<!-- <script src="{% static 'script/purchase/purchase_inquiry.js' %}"></script> -->
+<script src="{% static 'script/purchase/purchase_order.js' %}"></script>
+{% endblock %}

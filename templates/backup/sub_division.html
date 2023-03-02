@@ -1,0 +1,65 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="">
+{% endblock %}
+
+{% block content %}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-sm btn-primary float-end m-5" data-toggle="modal" data-target="#divisionModal"
+    onclick="add_division()">
+    Add Division
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="divisionModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add division</h5>
+                <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                {% csrf_token %}
+                <input type="text" class="form-control my-3" id="form_name" placeholder="Division Name">
+                <label for="form_department">Department</label> <select name="" class="form_department"
+                    id="form_department"></select>
+                <div class="messages"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="divisionButton">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are your sure to delete ?
+                <div class="delete-error"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="yes">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="division-container">
+
+</div>
+<script src="{% static 'script/subdivision.js' %}"></script>
+
+{% endblock %}

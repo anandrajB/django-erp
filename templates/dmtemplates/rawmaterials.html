@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content%}
+<button type="button" class="btn btn-primary float-end m-5" onclick=show_rm() data-toggle="modal"
+    data-target="#RawmaterialsModal">
+    Add Raw Matrial
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="RawmaterialsModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Raw Material</h5>
+                <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="messages"></div>
+                <div class="d-flex flex-row justify-content-center">
+                    {% csrf_token %}
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Raw Material</label>
+                        <input type="text" class="form-control my-3" id="id_rm_name" placeholder="Enter Material">
+                        <label for="exampleInputEmail1">Unit</label>
+                        <select name="" class="form-select" id="id_measured_unit">
+                            <option value=''>---------</option>
+                        </select>
+                        <!-- <input type="text" class="form-control my-3" id="id_measured_unit" placeholder="Enter Unit"> -->
+                        <label for="exampleInputEmail1">Stock</label>
+                        <input type="text" class="form-control my-3" id="id_min_stock" placeholder="Enter Stock">
+                        <label for="exampleInputEmail1">Price</label>
+                        <input type="text" class="form-control my-3" id="id_rm_max_price" placeholder="Enter Price">
+                        <label for="exampleInputEmail1">Currency</label>
+                        <select name="" class="form-select" id="id_currency">
+                            <option value=''>---------</option>
+                        </select>
+                        <label for="exampleInputEmail1">Prefered Party</label>
+                        <select class="form-control my-3" id="id_preferred_supplier_id">
+                            <option value=""></option>
+                        </select>
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="RawMaterialButton">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are your sure to delete ?
+                <div class="error-delete"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="yes">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'script/dm/rawmaterials.js' %}"></script>
+<div id="rawmaterialsdata">
+
+</div>
+{% endblock %}

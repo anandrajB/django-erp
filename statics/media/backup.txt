@@ -1,0 +1,33 @@
+
+purchase post api
+{"raw_material_items":[{"id":1,"quantity":4},{"id":2,"quantity":5}]
+}
+
+
+sales order api
+
+{"sales_order_items_list":[
+	{
+		"id":1,
+	"quantity":4,
+	"price":12,
+	"gst":12,
+	"due_date":"2023-12-14",
+	"payment_terms":"upi",
+	"freight_charges":123,
+	"date_delivery_expected":"2023-04-15"
+	},
+	{
+		"id":2,
+		"quantity":5,
+		"price":12,
+		"gst":12,
+		"due_date":"2023-12-14",
+		"payment_terms":"upi",
+		"freight_charges":123,
+		"date_delivery_expected":"2023-04-15"
+	}
+	],
+"customer_id":1,
+"date_delivery_expected":"2023-04-15"
+}

@@ -1,0 +1,53 @@
+{% csrf_token %}
+{% load static %}
+<div class="modal fade" id="BillofMaterialModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add Bill Of Material</h5>
+                <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="messages"></div>
+                <div class="d-flex flex-row justify-content-center">
+                    {% csrf_token %}
+                    <div class="form-group">
+
+                        <label for="exampleInputEmail1">Serial No</label>
+                        <input type="text" class="form-control my-3" id="form_rm_serial_no"
+                            placeholder="Enter Serial No">
+                        <label for="exampleInputEmail1">Quantity</label>
+                        <input type="text" class="form-control my-3" id="from_rm_quantity"
+                            placeholder="Enter  Quantity">
+
+                        <label for="exampleInputEmail1">Product</label>
+                        <select class="form-select" id="form_product">
+                            <option value=""></option>
+                        </select>
+                        <label for="form_rm_type">Raw Material type</label>
+                        <select name="" class="form-select" onchange="rm_type_get_edit(this)" id="form_rm_type">
+                            <option selected disabled value="">select rm type</option>
+                            <option value="rawmaterial">Raw Material</option>
+                            <option value="semi_finished_goods">Semi Finished Product</option>
+                        </select>
+                        <label for="form_rm_id">Raw Material</label>
+                        <select class="form-select" id="form_rm_id">
+                            <option value="">select Raw Material</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="BillofMaterialButton">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="billofmaterialsdata">
+</div>
+<div id="submit_bom"></div>
+<script src="{% static 'script/dm/billofmaterial.js' %}"></script>

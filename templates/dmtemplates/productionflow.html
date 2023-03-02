@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% load static %}
+
+<div class="product-default-container">
+    {% csrf_token %}
+    <div class="messsage"></div>
+
+
+    <div class="pf-cards-group">
+        <div class="pf-cards" onclick='new_pf()'>
+            New
+        </div>
+
+
+        <div class="pf-cards" onclick="crud_pf('edit')">
+            Edit Existing
+        </div>
+        <div class="pf-cards" onclick="crud_pf('delete')">
+            Delete Existing
+        </div>
+    </div>
+</div>
+<p id="product_div"> <label for="form_product">Product</label> <select name="form_product" onchange="get_part(this)"
+        id="form_product">
+        <option value="">select Product</option>
+    </select></p>
+<p id="part_div"> <label for="form_product">Part</label> <select name="form_parts" id="form_parts">
+        <option value="">select part</option>
+    </select></p>
+<div class="pf-product-div"></div>
+<div class="messages"></div>
+<div class="pf-container"></div>
+<div class="pf-form"></div>
+{% csrf_token %}
+<button type="submit" class="btn btn-primary" id="pf_submit" onclick="pf_post()">Submit</button>
+
+
+<script src="{% static 'script/dm/production_flow.js' %}"></script>
+<script src="{% static 'script/dm/pf_edit.js' %}"></script>
+
+<!-- <script src="{% static 'script/production_flow_edit.js' %}"></script> -->
+
+{% endblock %}

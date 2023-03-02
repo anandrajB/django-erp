@@ -1,0 +1,18 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content%}
+<div class="messages"></div>
+<!-- Modal -->
+
+<div class="d-flex flex-row justify-content-center flex-wrap mt-5" id="rawmaterialdiv">
+        <div class="card mx-2 my-5 p-5" id="showform">Add New</div>
+        <div class="card mx-2 my-5 p-5" id="rawmaterialtable">Existing</div>
+</div>
+<div class="fill-message">
+        <p class="text-center"> Fill all the detail to add new row </p>
+</div>
+
+<div id="product_div"></div>
+{% include 'dmtemplates/billofmaterialstable.html' %}
+<script src="{% static 'script/list_form.js' %}"></script>
+{% endblock %}

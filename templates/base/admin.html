@@ -1,0 +1,54 @@
+{% extends 'base/base.html'%}
+{% block content %}
+
+
+
+<div class="d-flex flex-row justify-content-center admin_page_conytainer flex-wrap mt-5">
+</div>
+<script>
+    let url = new URLSearchParams(window.location.search)
+    // console.log(url,'urk',url.get('model_name'))
+    page_name = url.get('content')
+    console.log(page_name, 'pagge')
+    admin_page_data = { 'data-management': ['product', 'rawmaterial', 'bill of material', 'production flow', 'parties'], 'user-management': ['branch', 'department', 'sub division', 'user role', 'user'], 'settings': ['production phase', 'country', 'party type'] }
+    content = ''
+    host = window.location.protocol + "//" + window.location.host;
+    admin_page_data[page_name].forEach(element => {
+        element_name = element.replace(/ /g, '')
+        if (page_name == 'data-management') {
+            content += ` <a href="${host}/${element_name}" class="nav-link text-truncate" id="${element_name}">
+        <div class="card mx-2 my-5 p-5 ">${element}</div>
+    </a>`
+        }
+        else {
+            content += ` <a href="${host}/data-management/?model_name=${element_name}" class="nav-link text-truncate" id="${element}">
+        <div class="card mx-2 my-5 p-5 ">${element}</div>
+    </a>`
+        }
+
+    });
+    document.querySelector('.admin_page_conytainer').innerHTML = content
+
+    // console.log(content, 'cont')
+    // if (page_name == 'data-management') {
+    //     document.getElementById("rawmaterial").href = `${host}/rawmaterial`
+    //     document.getElementById("bill of material").href = `${host}/billofmaterial`
+    //     document.getElementById("product").href = `${host}/product`
+    //     document.getElementById("production flow").href = `${host}/productionflow`
+    //     document.getElementById("parties_url").href = `${host}/parties`
+    // } else if (page_name == 'user-management') {
+
+    //     document.getElementById("branch_url").href = `${host}/data-management/?model_name=branch`
+    //     document.getElementById("department_url").href = `${host}/data-management/?model_name=department`
+    //     document.getElementById("user_role_url").href = `${host}/data-management/?model_name=userrole`
+    //     document.getElementById("division_url").href = `${host}/data-management/?model_name=subdivition`
+    //     document.getElementById('user_url').href = `${host}/data-management/?model_name=user`
+    // } else if (page_name == 'settings') {
+    //     document.getElementById("partytype").href = `${host}/data-management/?model_name=partytype`
+    //     document.getElementById("country").href = `${host}/data-management/?model_name=country`
+    //     document.getElementById("phase").href = `${host}/data-management/?model_name=productionphase`
+    //     document.getElementById("phase_url").href = `${host}/data-management/?model_name=productionphase`
+
+    // }
+</script>
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'base/base.html' %}
+<!-- {% load static %} -->
+{% block content %}
+<div class="inventory-get-container w-50 mx-5" onchange="check_fields(this)"></div>
+{% csrf_token %}
+<div class="messages"></div>
+<select name="" id="production_type" class="form-select" onchange="get_production_data(this)">
+    <option value="" selected disabled>Select product Type</option>
+    <option value="saledorder">salesorder</option>
+    <option value="internal">internal</option>
+</select>
+<input type="number" name="" placeholder="sales_order_number" class="form-control" id="id_sales_order">
+<label for="exampleInputEmail1">Product</label>
+<select class="form-select" onchange="get_bom(this)" id="id_product">
+    <option value=""></option>
+
+</select>
+<input type="number" placeholder="quantity" class="form-control" id="id_quantity">
+<button type="submit" onclick="submit()" class="btn btn-primary" id="product_submit">Submit</button>
+</div>
+</div>
+<div class='billofmaterial'></div>
+</div>
+<script src="{% static 'script/newproduction.js' %}"></script>
+{% endblock %}

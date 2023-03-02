@@ -1,0 +1,34 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content%}
+<!-- Inventory Type – Dropdown
+Inventory Name – Dropdown
+Warehouse/Branch - Dropdown
+Stock Available -->
+<div class="inventory-get-container w-50 mx-5" onchange="check_fields(this)">
+    {% csrf_token %}
+    <div class="messages"></div>
+    <!-- <label for=""></label> -->
+    <label for="inventory_type">Inventory Type</label>
+    <select name="" id="inventory_type" class="form-select" onchange="get_production_data(this)">
+
+        <option value="" selected disabled>Select Inventory Type</option>
+        <option value="product">Product</option>
+        <option value="rawmaterial">Raw Material</option>
+    </select>
+    <label for="inventory_data">Inventory Name</label>
+    <select disabled name="" onchange="get_details(this)" id="inventory_data" class="form-select"></select>
+    <!-- <input type="text" placeholder="ware_house_name" onchange="get_details(this)" name="" class="form-control"
+        id="form_ware_house"> -->
+    <label for="form_ware_house">Warehouse/Branch</label>
+    <select name="" id="form_ware_house" onchange="get_details(this)" class="form-select">
+        <option value="" selected disabled>Select Warehouse/Branch</option>
+    </select>
+    <label for="form_stock">Stock Available</label>
+    <input type="number" name="" class="form-control" id="form_stock">
+</div>
+<button type="submit" onclick="submit_data(null)" id="submit_button" disabled>Create</button>
+<a href="" id="inventory-url">Exit</a>
+<script src="{% static 'script/inventory/inventory-maintenance.js' %}"></script>
+
+{% endblock %}

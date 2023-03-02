@@ -1,0 +1,73 @@
+.product-container {
+    margin: 2%10%;
+    width: 80%;
+}
+
+/* 
+#productModal input {
+    margin: 2% 1%;
+} */
+
+.createtable {
+    width: 96%;
+    margin: 2%;
+}
+
+.parties_table {
+    margin: 0;
+}
+
+#partiesModal .modal-dialog {
+    max-width: 40%;
+}
+
+#billofmaterialsdata .center {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.inventory-get-container input,
+.inventory-get-container select {
+    margin: 2%;
+}
+
+.product-container #parts a {
+    text-decoration: none;
+    color: #212529;
+}
+
+/* .product-default-container .row.row-cols-1.row-cols-md-3.g-4 {
+    margin: 1% 29%;
+} */
+
+.product-default-container .card {
+    width: inherit;
+    text-align: center;
+}
+
+.product-default-container .pf-cards-group {
+    display: flex;
+    justify-content: space-evenly;
+    width: 50%;
+    margin: 2% 24%;
+}
+
+.pf-cards {
+    text-align: center;
+    width: 18%;
+    padding: 3%;
+    background-color: burlywood;
+    border-radius: 8%;
+}
+
+/* table.table.pf-table {
+    width: 35%;
+}
+
+.fill-message {
+    visibility: hidden;
+}
+
+table a {
+    text-decoration: none;
+}

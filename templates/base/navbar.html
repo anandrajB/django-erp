@@ -1,0 +1,196 @@
+{% load static %}
+
+<div id="nav">
+    <div class="col">
+        <div class="d-flex admin-profile">
+            <img src="/media/navbar_asset/iconsfordashborad.svg" />
+            <a href="/" class="text-decoration-none profile-detail-div">
+                <p id="profile-name"></p>
+                <p id="profile-role"></p>
+            </a>
+        </div>
+    </div>
+    <div>
+        <div class="accordion accordion-flush" id="navbar-accordion">
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingdashboard">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapsedashboard" aria-expanded="false" aria-controls="collapsedashboard">
+                        <img src="/media/navbar_asset/dashborad.svg" />
+                        <p class="accordion-text text-truncate">Dashboard</p>
+                    </button>
+                </h2>
+                <div id="collapsedashboard" class="accordion-collapse collapse" aria-labelledby="headingdashboard"
+                    data-bs-parent="#navbar-accordion">
+                    <div class="accordion-body">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingadmin">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseadmin" aria-expanded="false" aria-controls="collapseadmin">
+                        <img src="/media/navbar_asset/admin.svg" />
+                        <p class="accordion-text text-truncate">Admin</p>
+                    </button>
+                </h2>
+                <div id="collapseadmin" class="accordion-collapse collapse" aria-labelledby="headingadmin"
+                    data-bs-parent="#navbar-accordion">
+                    <div class="accordion-body">
+                        <div class="accordion" id="accordionadmin">
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headinguser">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseuser" aria-expanded="true"
+                                        aria-controls="collapseuser">
+                                        <img src="/media/navbar_asset/manageuser.svg" />
+                                        <p class="accordion-text text-truncate">User Management</p>
+                                    </button>
+                                </h2>
+                                <div id="collapseuser" class="accordion-collapse collapse" aria-labelledby="headinguser"
+                                    data-bs-parent="#accordionadmin">
+                                    <div class="accordion-body">
+                                        <ul id="user_data">
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingmdm">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapsemdm" aria-expanded="false" aria-controls="collapsemdm">
+                                        <img src="/media/navbar_asset/masterdatamanagement.svg" />
+                                        <p class="accordion-text text-truncate">Master Data Management</p>
+                                    </button>
+                                </h2>
+                                <div id="collapsemdm" class="accordion-collapse collapse" aria-labelledby="headingmdm"
+                                    data-bs-parent="#accordionadmin">
+                                    <div class="accordion-body">
+
+                                        <ul id="master_data">
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="accordion-item">
+                                <h2 class="accordion-header" id="headingconfig">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapseconfig" aria-expanded="false"
+                                        aria-controls="collapseconfig">
+
+                                        <img src="/media/navbar_asset/Configuration.svg" />
+                                        <p class="accordion-text text-truncate">Configuration</p>
+                                    </button>
+                                </h2>
+                                <div id="collapseconfig" class="accordion-collapse collapse"
+                                    aria-labelledby="headingconfig" data-bs-parent="#accordionadmin">
+                                    <div class="accordion-body">
+                                        <ul id="configuration">
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headinginventory">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseinventory" aria-expanded="false" aria-controls="collapseinventory">
+                        <img src="/media/navbar_asset/inventory_management.svg" />
+                        <p class="accordion-text text-truncate">Inventory Management</p>
+                    </button>
+                </h2>
+                <div id="collapseinventory" class="accordion-collapse collapse" aria-labelledby="headinginventory"
+                    data-bs-parent="#navbar-accordion">
+                    <div class="accordion-body">
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingsales">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapsesales" aria-expanded="false" aria-controls="collapsesales">
+                        <img src="/media/navbar_asset/sales_management.svg" />
+                        <p class="accordion-text text-truncate">Sales Management</p>
+                    </button>
+                </h2>
+                <div id="collapsesales" class="accordion-collapse collapse" aria-labelledby="headingsales"
+                    data-bs-parent="#navbar-accordion">
+                    <div class="accordion-body">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingpurchase">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapsepurchase" aria-expanded="false" aria-controls="collapsepurchase">
+                        <img src="/media/navbar_asset/purchase_management.svg" />
+                        <p class="accordion-text text-truncate">Purchase Management</p>
+                    </button>
+                </h2>
+                <div id="collapsepurchase" class="accordion-collapse collapse" aria-labelledby="headingpurchase"
+                    data-bs-parent="#navbar-accordion">
+                    <div class="accordion-body">
+
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingproduction">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapseproduction" aria-expanded="false" aria-controls="collapseproduction">
+                        <img src="/media/navbar_asset/production_management.svg" />
+                        <p class="accordion-text text-truncate">Production Management</p>
+                    </button>
+                </h2>
+                <div id="collapseproduction" class="accordion-collapse collapse" aria-labelledby="headingproduction"
+                    data-bs-parent="#navbar-accordion">
+                    <div class="accordion-body">
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+
+<script>
+    admin_page_data = { 'master_data': ['product', 'rawmaterial', 'bill of material', 'production flow', 'parties'], 'user_data': ['branch', 'department', 'sub division', 'user role', 'user'], 'configuration': ['party type', 'production phase', 'country', 'state', 'currency', 'measuredunits'] }
+    main_list = ['user_data', 'master_data', 'configuration']
+
+    main_list.forEach(element => {
+        let li_list = admin_page_data[element]
+        content = ''
+        li_list.forEach(element2 => {
+            element_name = element2.replace(/ /g, '')
+            // element2 = element2.replace(/([a-z0-9])([A-Z])/g, '$1 $2');
+            element2 = element2.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) { return str.toUpperCase() })
+            console.log(element2)
+            // element2 = `${element2[0].toUpperCase()}${element2.substring(1)}`
+            // if (element == 'master_data') {
+            //     content += `<li> <a href='${window.location.protocol}//${window.location.host}/${element_name}'>${element2}</a></li>`
+            // } 
+            // else {
+            content += `<li> <a href='${window.location.protocol}//${window.location.host}/data-management/?model_name=${element_name}' id='nav_${element_name}'>${element2}</a></li>`
+            // }
+        })
+        document.getElementById(element).innerHTML = content
+    })
+</script>

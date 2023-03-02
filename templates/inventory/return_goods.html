@@ -1,0 +1,35 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content%}
+
+<div id="messages"></div>
+<div>
+<label class='w-50 my-0 mx-3 '>Sales Order No</label>
+<input class="form-control w-50" id='id_salesorder' onchange='sales_order(this)'type="text" placeholder='Sales Order No'></div>
+<label class='w-50 my-0 mx-5'>Sales Invoice No</label>
+<div class = 'w-50 mx-5'>
+    <select  class = 'form-select my-2' id='sales_invoice_no' onchange='sales_invoice_no()'>
+       <option value=''></option>
+     </select></div>
+
+
+     <div class='w-50 mx-5' id='sales_order_list'></div>
+
+     <div class='w-50 mx-5' id='table'></div>
+
+<div class='w-50 mx-5' id='customer_details'>
+   <label>customer_details</label><br>
+  </div>
+<div class='w-50 mx-5'id='details'></div>
+{% comment %} <div class='w-50 mx-5' id='customer'></div>  {% endcomment %}
+<div class='w-50 mx-5' id='branch'></div>
+
+<div class='w-50 mx-5' id='tabel'></div>
+
+<button class="btn btn-primary mx-5 my-2" id='id_submit'>submit</button>
+<button><a href="/inventory?model_name=inventory">Exit</a></button>
+<button class="btn btn-primary mx-5" id='id_submit'>Action</button>
+
+<script src="{% static 'script/list_form.js'%}"></script>  
+<script src="{% static 'script/inventory/returngoods.js' %}"></script>
+{% endblock %}

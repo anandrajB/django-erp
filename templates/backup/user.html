@@ -1,0 +1,92 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block styles %}
+<link rel="stylesheet" href="">
+{% endblock %}
+
+{% block content %}
+<!-- Button trigger modal -->
+<button type="button" class="btn btn-sm btn-primary float-end m-5" data-toggle="modal" data-target="#userModal"
+    onclick="">
+    Add User
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="userModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">add user</h5>
+                <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                {% csrf_token %}
+                <div class="messages"></div>
+
+
+                <input id="form_name" placeholder="Username" type="text" class="input form-control">
+
+                <p id="email-errors"></p>
+                <input id="form_email" placeholder="Email" onchange=check_email(this) type="text"
+                    class="input form-control">
+
+                <input id="form_phone" placeholder="phone" type="mobile" class="input form-control">
+                <p>
+                    <label for="form_department">Department</label>
+                    <select name="" onchange="get_division(this)" id="form_department">
+                        <option value=''>---------</option>
+                    </select>
+                </p>
+                <p>
+                    <label for="form_division">Division</label>
+                    <select name="" id="form_division">
+                        <option value=''>---------</option>
+
+                    </select>
+                </p>
+                <p>
+                    <label for="form_role">User Role</label>
+                    <select name="" id="form_role">
+                        <option value=''>---------</option>
+                    </select>
+                </p>
+                <!--  -->
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" id="userButton">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- 
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are your sure to delete ?
+                <div class="delete-error"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" id="yes">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div> -->
+<div class="user-container">
+
+</div>
+<script src="{% static 'script/user.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,66 @@
+{%extends 'base/base.html'%}
+{%load static%}
+{%block content%}
+<div class='messages'></div>
+<label for="transfer_type">Transfer Type </label>
+<div class="d-flex flex-wrap w-75">
+    <select id="transfer_type" class="form-select w-75" onchange="inventory_type(this)">
+        <option selected disabled value="">Select Transfer type</option>
+        <option value="internal transfer">internal transfer</option>
+        <option value="jobwork">jobwork</option>
+    </select>
+    <label class='my-1 w-50' for='send_to_party'>Send to Party </label>
+    <div class='branch w-75'>
+        <select class='form-control my-3' id='id_branch'>
+            <option value=''>Select Party</option>
+        </select>
+    </div>
+    <div class='w-75' id='id_options'>
+        <label>Product_type</label>
+        <select class='w-50 form-select' id='Product_type' placeholder='Product_type'
+            onchange='product_dropdowns(this)'>
+            <option selected disabled value="">Select raw material type</option>
+            <option value='Finished Goods'>Finished Goods</option>
+            <option value='Semi-finished Goods'>Semi-finished Goods</option>
+            <option value='Raw materials/Accessories'>Raw materials/Accessories</option>
+        </select>
+        <label class='w-50'>Product_name</label>
+        <select class='w-50 form-select' oninput="get_bom(this)" id='Product_name' placeholder='Product_name'>
+            <option value=''></option>
+        </select>
+        <label class='w-50 my-2'>quantity</label>
+        <input class='w-50 my-2' id='quantity' placeholder='quanity' onchange='product_get()'></input>
+    </div>
+    <div id="party_data"></div>
+    <div id="bilofmaterial"></div>
+    <div class='w-3' id='party_type'></div>
+
+    <div id='vehicle_details'>
+        <label class='my-2 w-50'>vehicle_type</label>
+        <input class="vehicle_type" placeholder='vehicle_type'><br>
+        <label class='my-2 w-50'>vehicle_number</label>
+        <input class="vehicle_number " placeholder='vehicle_number'>
+    </div>
+
+    <div class="d-flex flex-wrap w-75">
+        <label>Freightcharges</label>
+        <select id="Freight_charges" class="form-select" placeholder="Freight Charges paid by">
+            <option value="Self">Self</option>
+            <option value="other_party">other party </option>
+        </select>
+    </div>
+    <div class='w-3' id="transfer"></div>
+    <label class='my-2 w-50'>Freight Charges Amount</label>
+    <input type="number" class="form-control" placeholder="Freight Charges Amount" id="Freight_Charges_Amount">
+
+    <!-- {% comment %} < class="form-select" name="transporter_details"> {% endcomment %} -->
+    <label for="Transporter_details">Transporter details</label>
+    <select class='form-select' id="Transporter_details">
+        <option value=''></option>
+    </select>
+    <button class="btn btn-primary btn-sm w-25 my-3 " onclick="submiton(this)">submit</button>
+    <a href="/inventory?model_name=inventory" id="">exit</a>
+    <button class="btn btn-primary btn-sm w-25 mx-3 my-3 float-right" onclick="">Action</button>
+    <script src="{% static 'script/list_form.js'%}"></script>
+    <script src="{% static 'script/inventory/inventorytransfer.js'%}"></script>
+    {%endblock%}

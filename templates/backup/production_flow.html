@@ -1,0 +1,103 @@
+{% extends 'base/base.html' %}
+{% block content %}
+{% load static %}
+
+
+<div class="product-default-container">
+    {% csrf_token %}
+    <div class="messsage"></div>
+    <p> <label for="form_product">Product</label> <select name="form_product" id="form_product">
+            <option value="">select Product</option>
+
+    <div class="pf-cards-group">
+        <div class="pf-cards" onclick='postgetpf()'>
+            New
+        </div>
+
+        <div class="pf-cards" onclick=edit_get_pf()>
+            Edit Existing
+        </div>
+        <div class="pf-cards" onclick=delete_get_pf()>
+            Delete Existing
+        </div>
+    </div>
+</div>
+<p id="part_div"> <label for="form_product">Part</label> <select name="form_parts" id="form_parts">
+        <option value="">select part</option>
+    </select></p>
+<div class="messages"></div>
+<div class="pf-container"></div>
+<div class="pf-form"></div>
+
+{% csrf_token %}
+<button type="submit" class="btn btn-primary" id="pf_submit" onclick="pf_post()">Submit</button>
+
+<!-- <button class="btn btn-sm btn-primary float-end mx-5" onclick=show_pf() data-toggle="modal"
+    data-target="#productionflowModal">Add
+    ProductionFlow</button> -->
+
+
+<div class="modal fade" id="productionflowModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Add ProductionFlow</h5>
+                <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center">
+                <!-- onchange=check_allfilled(this,6) -->
+                {% csrf_token %}
+                <label for="id_product">Product</label>
+                <select class="form-control m-1" name="" id="id_product">
+                    <option value=""></option>
+                </select>
+                <label for="id_partname">Part</label>
+                <select class="form-control m-1" name="" id="id_part_name">
+                    <option value=""></option>
+                </select>
+                <label for="id_phase">Phase</label>
+                <select class="form-control m-1" name="" id="id_phases">
+                    <option value=""></option>
+                </select>
+                <button type="submit" class="btn btn-primary" onclick=AddPhase()>Add Phase</button>
+
+                <p class="messages"></p>
+                <p class="pf-list"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary" onclick=AddProductionflow(null)
+                    id="productflowButton">Submit</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Are your sure to delete ?
+                <div class="error-delete"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" id="yes">Yes</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="productionflowdata"></div>
+<script src="{% static 'script/production_flow.js' %}"></script>
+<script src="{% static 'script/production_flow_edit.js' %}"></script>
+
+{% endblock %}

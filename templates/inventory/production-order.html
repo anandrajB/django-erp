@@ -1,0 +1,11 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block content%}
+<div class="messages"></div>
+<div class="production-order-list"></div>
+<div id="production-order-form" class="w-50"></div>
+<div class="submit-button">
+</div>
+<script src="{% static 'script/inventory/production-order.js' %}"></script>
+<script src="{% static 'script/inventory/production-order-post.js' %}"></script>
+{% endblock %}

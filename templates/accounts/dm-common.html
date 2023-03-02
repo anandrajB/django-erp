@@ -1,0 +1,81 @@
+{% extends 'base/base.html' %}
+{% load static %}
+{% block css %}
+<!-- <link href="{% static 'css/style.css' %}" rel="stylesheet">      -->
+{% endblock %}
+
+
+{% block content %}
+
+
+<div class="master-data-container">
+    {% include 'base/title-header.html' %}
+    {% include 'base/navbar.html' %}
+    <div class="table-content">
+        {% csrf_token %}
+        <div class="messages" id="messages"></div>
+        <div class="model-container"></div>
+        <div class="dm-filter" id="dm-filter">
+            <div class="input-group">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
+                        type="button">
+                        <!-- <i class="fa fa-search"></i> -->
+                        <img class="icon" src="/media/assets/table/Vector.svg" />
+                    </button>
+                </span>
+                <input class="form-control border-end-0 border" oninput="filter_data(this)" name="filter-search"
+                    id="filter-search" type="search">
+            </div>
+        </div>
+        <div class="content-container">
+        </div>
+        <div class="fr">
+
+        </div>
+        <div class="delete-model-container">
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                            <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are your sure to delete ?
+                            <div id="delete-error"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="yes">Yes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="no">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+
+
+<!-- 
+<script>
+    var model_name = `{{model_name}}`
+</script> -->
+<script src="{% static 'script/accounts/dm-data.js' %}"></script>
+<script src="{% static 'script/accounts/bom_and_pf.js' %}"></script>
+<script src="{% static 'script/accounts/dm-common.js' %}"></script>
+<script src="{% static 'script/accounts/dm-common-utils2.js' %}"></script>
+<script src="{% static 'script/accounts/dm-common-utils.js' %}"></script>
+
+
+{% endblock %}

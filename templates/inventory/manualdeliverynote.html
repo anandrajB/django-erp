@@ -1,0 +1,25 @@
+{% extends 'base/base.html'%}
+{% load static %}
+
+
+
+{% block content %}
+<div class ='manualdelivery_container w-50 mx-5'></div>
+{%csrf_token%}
+<div class='message'></div>
+<input class='form-control' type='number' placeholder='salesorder_number' id='id_salesdorder'>
+<button type='submit' onclick="submit()"class="btn btn-primary" id='salesordernumber'>submit</button>
+<script src="{% static 'script/inventory/manualdeliverynote.js' %}"></script>
+{% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+

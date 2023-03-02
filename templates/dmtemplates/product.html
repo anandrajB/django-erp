@@ -1,0 +1,129 @@
+{% extends 'base/base.html' %}
+
+{% block content %}
+{% load static %}
+
+<!-- <button onclick=add_product_show() data-target="#productModal" data-toggle="modal"
+    class="btn btn-sm btn-primary float-end mx-5">Add
+    Product</button>
+ -->
+
+<div class="master-data-container">
+    {% include 'base/title-header.html' %}
+    {% include 'base/navbar.html' %}
+    <div class="table-content">
+        {% csrf_token %}
+        <div class="messages" id="messages"></div>
+
+        <div class="dm-filter">
+            <div class="input-group">
+                <span class="input-group-append">
+                    <button class="btn btn-outline-secondary bg-white border-start-0 border-bottom-0 border ms-n5"
+                        type="button">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </span>
+                <input class="form-control border-end-0 border" oninput="filter_data(this)" name="filter-search"
+                    id="filter-search" type="search">
+            </div>
+        </div>
+
+        <div class="model-container">
+
+            <div class="form-head">Add Product</div>
+            <div class="model-messages"></div>
+            <div id="productModal" class="dm-form-body" onchange=check_allfilled(this,6)>
+
+                <div class="form-group">
+                    <label for="products_name">Product Name</label>
+                    <input type="text" class="form-control" name="" id="products_name">
+                </div>
+                <div class="form-group">
+                    <label for="products_type">Product Type</label>
+                    <select name="" class="form-select" id="products_type">
+                        <option value="finished">finished</option>
+                        <option value="semi_finished">semi_finished</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="min_price">Minimum Price</label>
+                    <div class="input-group">
+                        <select id="form_currency">
+                        </select>
+                        <input type="number" class="form-control" name="" id="min_price">
+                    </div>
+                </div>
+                <div class="form-group">
+
+                    <label for="max_price">Max Price</label>
+                    <select name="" id="form_currency">
+                        <option value=''>---------</option>
+                    </select>
+                    <input type="number" class="form-control" name="" id="max_price">
+                </div>
+                <div class="form-group">
+                    <label for="form_currency">Currency</label>
+                    <select name="" class="form-select" id="form_currency">
+                        <option value=''>---------</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="minimum_stock">Minimum Stock</label>
+                    <input type="number" class="form-control" name="" id="minimum_stock">
+                </div>
+                <div class="form-group" id="multipart-form-div">
+                </div>
+                <!-- <div class="form-group">
+                    <p id="add_part-div" style="display: none;"> <input type="text" class="form-control" name=""
+                            id="parts" placeholder="part">
+                        <span>add parts</span> <button onclick=add_parts(this)><i class="bi bi-plus"></i></button>
+                    </p>
+                </div> -->
+
+
+                <p class="product-messages"></p>
+                <p class="parts-list"></p>
+            </div>
+        </div>
+
+        <div class="product-container"></div>
+        <div class="fr">
+
+        </div>
+        <div class="delete-model-container">
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                            <button type="button" class="close btn bg-none" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            Are your sure to delete ?
+                            <div id="delete-error"></div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" id="yes">Yes</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal" id="no">No</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+{% csrf_token %}
+
+<!-- <button type="submit" class="btn btn-primary" data-dismiss="modal" disabled id="productButton">Submit</button> -->
+
+<script src="{% static 'script/dm/products.js' %}"></script>
+{% endblock %}

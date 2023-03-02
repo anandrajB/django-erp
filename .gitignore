@@ -1,0 +1,8 @@
+*env
+.env
+env
+*venv
+venv
+
+*migrations
+migrations

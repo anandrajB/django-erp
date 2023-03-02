@@ -1,0 +1,64 @@
+<div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvas" data-bs-keyboard="false" data-bs-backdrop="false">
+    <div class="offcanvas-header">
+        <h6 class="offcanvas-title d-none d-sm-block" id="offcanvas">Menu</h6>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body px-0">
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-start" id="menu">
+            <li class="nav-item">
+                <a href="#" class="nav-link text-truncate">
+                    <i class="fs-5 bi-house"></i><span class="ms-1 d-none d-sm-inline">Home</span>
+                </a>
+            </li>
+            <li>
+                <a href="#submenu1" data-bs-toggle="collapse" class="nav-link text-truncate">
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline">Dashboard</span> </a>
+            </li>
+
+            <li>
+                <a href="#" id="sales-url-nav" class="nav-link text-truncate">
+                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline">sales-management</span></a>
+            </li>
+
+            <li class="admin">
+                <a href="#" data-bs-toggle="dropdown" class="nav-link dropdown-toggle  text-truncate"
+                    aria-expanded="false">
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline">Admin</span> </a>
+                <ul class="dropdown-menu text-small shadow" aria-labelledby="admin">
+                    <li><a class="dropdown-item" id="data-management-url" href="#">Data Management</a></li>
+                    <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" id="user-management-url" href="#">Manage users</a></li>
+                    <hr class="dropdown-divider">
+                    <li><a class="dropdown-item" id="settings-url" href="#">Settings</a></li>
+                </ul>
+            </li>
+
+
+            <li>
+                <a href="#" id="inventory-url-nav" class="nav-link text-truncate">
+                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">inventory</span> </a>
+            </li>
+            <li>
+                <a href="#" id="production-url-nav" class="nav-link text-truncate">
+                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline">production</span> </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<div class="navbar-container"></div>
+
+<button class="btn float-start" data-bs-toggle="offcanvas" data-bs-target="#offcanvas" role="button">
+    <i class="bi bi-arrow-right-square-fill fs-3" data-bs-toggle="offcanvas" data-bs-target="#offcanvas"></i>
+</button>
+
+<script>
+    var host = window.location.protocol + "//" + window.location.host;
+    // document.getElementById('admin').href = `${host}/admindash`
+    document.getElementById('data-management-url').href = `${host}/admindashboard/?content=data-management`
+    document.getElementById('user-management-url').href = `${host}/admindashboard/?content=user-management`
+    document.getElementById('settings-url').href = `${host}/admindashboard/?content=settings`
+    document.getElementById('inventory-url-nav').href = `${host}/inventory?model_name=inventory`
+    document.getElementById('sales-url-nav').href = `${host}/inventory?model_name=sales-order`
+    document.getElementById('production-url-nav').href = `${host}/inventory?model_name=production`
+</script>

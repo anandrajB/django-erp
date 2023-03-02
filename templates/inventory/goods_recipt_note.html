@@ -1,0 +1,33 @@
+{% extends 'base/base.html' %}
+{%load static%}
+{%block content%}
+
+
+
+<div class='messages'></div>
+{%csrf_token%}
+<label class='w-50 mx-3'>Goods Received From</label>
+<div class='w-50'placeholder ='Goods Received From '>
+    <select class='form-select w-50' id='goods_received_from' onchange='internal_transfer(this)'>
+        <option value='Internal Transfer'>Internal Transfer</option>
+        <option value='Contractor'>Contractor</option>
+        <option value='Supplier'>Supplier</option>
+    </select> 
+</div>
+<div  class='mx-5 my-2'id=''></div>
+<div id='table'></div>
+<div class='mx-5 my-2'id='contractor'></div>
+<div class='mx-5 my-2'id='internal'></div>
+<div class='mx-5 my-2'id='supplier'></div>
+<div class='mx-5 my-2'id='transfer_request'></div>
+<div class='mx-5 my-3'id='table_vlaue'></div>
+<div class='mx-5 my-4' onclick='transfer_request(this)'id='internal_dropdown'></div>
+
+
+
+<button class='btn btn-primary mx-5 my-2' id='id_submit'>Submit</button>
+<a href='/inventory?model_name=sales'>Exit</a>
+<button class='btn btn-primary mx-5 my-2' id='id_action'>Action</button>
+<script src="{% static 'script/list_form.js'%}"></script>  
+<script src="{%static 'script/inventory/goods_recipt_note.js'%}"></script>
+{% endblock %}
