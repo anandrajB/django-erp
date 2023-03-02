@@ -90,7 +90,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "statics"),]
 STATIC_URL = '/static/'
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 WSGI_APPLICATION = 'erp.wsgi.application'
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
